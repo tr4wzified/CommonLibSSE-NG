@@ -469,6 +469,7 @@ namespace RE
 		bool                                   AttemptPickpocket(TESObjectREFR* a_containerRef, InventoryEntryData* a_entry, std::int32_t a_number, bool a_fromContainer = true);
 		bool                                   CenterOnCell(const char* a_cellName);
 		bool                                   CenterOnCell(RE::TESObjectCELL* a_cell);
+		void                                   DragonRideCommandAttack(TESObjectREFR* a_target);
 		[[nodiscard]] NiPointer<Actor>         GetActorDoingPlayerCommand() const;
 		[[nodiscard]] float                    GetArmorValue(InventoryEntryData* a_form);
 		[[nodiscard]] float                    GetDamage(InventoryEntryData* a_form);
@@ -491,7 +492,7 @@ namespace RE
 
 		template <class T>
 		inline void AddEventSink(BSTEventSink<T>* a_sink)
-		{
+			{
 			GetEventSource<T>()->AddEventSink(a_sink);
 		}
 
@@ -622,6 +623,7 @@ namespace RE
 		ObjectRefHandle                                         grabbedObject;               // 8C8
 		float                                                   grabObjectWeight;            // 8CC
 		RUNTIME_DATA_CONTENT;                                                                // 8D0
+		ObjectRefHandle                               dragonRideTarget;						 // 9BC
 		std::uint8_t                                  unkA20[0xA0];                          // A20
 		std::uint32_t                                 unkAC0;                                // AC0
 		std::uint32_t                                 unkAC4;                                // AC4

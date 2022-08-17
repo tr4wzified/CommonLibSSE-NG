@@ -43,6 +43,12 @@ namespace RE
 		return CenterOnCell_Impl(nullptr, a_cell);
 	}
 
+	void PlayerCharacter::DragonRideCommandAttack(TESObjectREFR* a_target) {
+		using func_t = decltype(&PlayerCharacter::DragonRideCommandAttack);
+		REL::Relocation<func_t> func{ RELOCATION_ID(39633, 40719) };
+		return func(this, a_target);
+	}
+
 	NiPointer<Actor> PlayerCharacter::GetActorDoingPlayerCommand() const
 	{
 		return REL::RelocateMember<ActorHandle>(this, 0x894, 0xE8C).get();
